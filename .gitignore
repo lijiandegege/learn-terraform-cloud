@@ -1,0 +1,19 @@
+# 直接在当前目录创建.gitignore，写入忽略规则（UTF-8 编码，避免乱码）
+@"
+# Terraform 本地缓存目录（核心：忽略超大插件文件）
+.terraform/
+# Terraform 状态文件（含敏感数据，绝对不提交）
+terraform.tfstate
+terraform.tfstate.backup
+# 变量文件（可能含密钥）
+*.tfvars
+*.tfvars.json
+# 临时/日志文件
+*.log
+*.tmp
+# 二进制可执行文件
+*.exe
+*.dll
+# 插件锁文件（可选：若团队协作可提交，单人居可忽略）
+.terraform.lock.hcl
+"@ | Out-File -FilePath .gitignore -Encoding utf8 -Force
